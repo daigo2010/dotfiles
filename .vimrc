@@ -63,9 +63,9 @@ if exists('&ambiwidth')
 endif
 
 set notitle
-set autowrite
+"set autowrite
 set scrolloff=5 
-set backup
+"set backup
 set number
 set history=50
 set list
