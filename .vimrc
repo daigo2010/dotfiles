@@ -1,5 +1,5 @@
 syntax on
-set paste
+"set paste
 colorscheme my-color
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
 "match ZenkakuSpace 
@@ -73,14 +73,35 @@ set listchars=tab:\ \ ,extends:<,trail:\
 set laststatus=2
 set directory=/tmp
 set wildmode=full:list
+set wildmenu
 set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 let g:bufExplorerOpenMode = 1
 let g:bufExplorerSplitBelow = 1
 let g:bufExplorerSplitType = 15
 
-map <c-w><c-f> :FirstExplorerWindow<cr>
-map <c-w><c-b> :BottomExplorerWindow<cr>
-map <c-w><c-t> :WMToggle<cr>
+cnoremap  / getcmdtype() == '/' ? '\/' : '/'
 
-let g:winManagerWindowLayout = 'FileExplorer|TagList'
+nnoremap ls :ls<CR>
+nnoremap bp :bprevious<CR>
+nnoremap bn :bnext<CR>
+nnoremap bd :bdelete<CR>
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+inoremap <C-e> <Esc><Right>
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-w> <C-o>w
+inoremap <C-b> <C-o>b
+inoremap <C-u> <Backspace>
+inoremap <C-p> <Del>
 
