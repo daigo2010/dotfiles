@@ -96,12 +96,7 @@ inoremap <C-e> <Esc><Right>
 inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
 inoremap <C-b> <C-o>b
-inoremap <C-u> <Backspace>
-inoremap <C-p> <Del>
 
