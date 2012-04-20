@@ -79,12 +79,8 @@ let g:bufExplorerOpenMode = 1
 let g:bufExplorerSplitBelow = 1
 let g:bufExplorerSplitType = 15
 
-cnoremap  / getcmdtype() == '/' ? '\/' : '/'
 
 nnoremap ls :ls<CR>
-nnoremap bp :bprevious<CR>
-nnoremap bn :bnext<CR>
-nnoremap bd :bdelete<CR>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -92,10 +88,7 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-inoremap <C-e> <Esc><Right>
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
+inoremap jj <Esc><Right>
 inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
 inoremap <C-b> <C-o>b
