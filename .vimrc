@@ -92,10 +92,7 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-inoremap <C-e> <Esc><Right>
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
+inoremap jj <ESC>
 inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
 inoremap <C-b> <C-o>b
