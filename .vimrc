@@ -92,4 +92,6 @@ inoremap jj <Esc><Right>
 inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
 inoremap <C-b> <C-o>b
-
+inoremap <C-f> {
+inoremap <C-e> }
+inoremap <C-v> \
