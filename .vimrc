@@ -95,3 +95,13 @@ inoremap <C-b> <C-o>b
 inoremap <C-f> {
 inoremap <C-e> }
 inoremap <C-v> \
+
+" vundle
+set nocompatible               " be iMproved
+filetype off                   " required!
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle 'glidenote/memolist.vim'
+
+filetype plugin indent on     " required!
