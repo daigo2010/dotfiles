@@ -4,11 +4,45 @@ setopt auto_cd
 setopt auto_pushd
 setopt correct
 
+# ${fg[...]} や $reset_color をロード
+autoload -U colors; colors
+
+function rprompt-git-current-branch {
+    local name st color
+
+    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+        return
+    fi
+    name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+    if [[ -z $name ]]; then
+        return
+    fi
+    st=`git status 2> /dev/null`
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+        color=${fg[green]}
+    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+        color=${fg[yellow]}
+    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+        color=${fg_bold[red]}
+    else
+        color=${fg[red]}
+    fi
+    
+    # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+    # これをしないと右プロンプトの位置がずれる
+    echo "%{$color%}$name%{$reset_color%} "
+}
+
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
+
 #export LANG=ja_JP.eucjp
 alias ll='ls -la'
+alias g='git'
+alias v='vim'
 
 PROMPT="`whoami`@%m%% "
-RPROMPT="[%~]"
+RPROMPT="[`rprompt-git-current-branch`%~]"
 PROMPT2="zsh%%%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
@@ -34,5 +68,5 @@ zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=3
 
 #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-export PATH="$HOME/.rbenv/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
