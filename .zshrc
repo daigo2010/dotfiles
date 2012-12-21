@@ -3,6 +3,7 @@ compinit
 setopt auto_cd
 setopt auto_pushd
 setopt correct
+setopt prompt_subst
 
 # ${fg[...]} や $reset_color をロード
 autoload -U colors; colors
@@ -17,6 +18,7 @@ function rprompt-git-current-branch {
     if [[ -z $name ]]; then
         return
     fi
+
     st=`git status 2> /dev/null`
     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
         color=${fg[green]}
@@ -27,14 +29,17 @@ function rprompt-git-current-branch {
     else
         color=${fg[red]}
     fi
-    
+
     # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
     # これをしないと右プロンプトの位置がずれる
     echo "%{$color%}$name%{$reset_color%} "
 }
 
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
+function update_prompt {
+    RPROMPT="[`rprompt-git-current-branch`%~]"
+}
+
+precmd_functions=($precmd_functions update_prompt)
 
 #export LANG=ja_JP.eucjp
 alias ll='ls -la'
@@ -42,7 +47,6 @@ alias g='git'
 alias v='vim'
 
 PROMPT="`whoami`@%m%% "
-RPROMPT="[`rprompt-git-current-branch`%~]"
 PROMPT2="zsh%%%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
@@ -70,3 +74,4 @@ zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=3
 
 export PATH="$HOME/.rbenv/bin:$PATH;/usr/include"
 eval "$(rbenv init - zsh)"
+
