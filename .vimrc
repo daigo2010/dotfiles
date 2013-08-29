@@ -32,6 +32,7 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+vnoremap <Space> :s/ *$//<CR>
 
 inoremap jj <Esc><Right>
 inoremap <C-l> <Del>
