@@ -28,6 +28,6 @@
     df = diff
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --date=short --pretty='format:%C(black bold)%ad %C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an%Creset' --abbrev-commit --all
-    lolas = log --graph --decorate --date=short --pretty='format:%C(black bold)%ad %C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an%Creset' --abbrev-commit --all --stat
+    lola = log --graph --decorate --date=short --pretty='format:%C(blue bold)%ad %C(yellow)%h%Cred%d%Creset %s %C(black bold)%an%Creset' --abbrev-commit --all
+    lolas = log --graph --decorate --date=short --pretty='format:%C(bule bold)%ad %C(yellow)%h%Cred%d%Creset %s %C(black bold)%an%Creset' --abbrev-commit --all --stat
     ls = ls-files
