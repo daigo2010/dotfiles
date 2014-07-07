@@ -5,6 +5,9 @@ setopt auto_pushd
 setopt correct
 setopt prompt_subst
 
+IGNOREEOF=1
+export IGNOREEOF
+
 # ${fg[...]} や $reset_color をロード
 autoload -U colors; colors
 
@@ -36,7 +39,8 @@ function rprompt-git-current-branch {
 }
 
 function update_prompt {
-    RPROMPT="[`rprompt-git-current-branch`%~]"
+###    RPROMPT="[`rprompt-git-current-branch`%~]"
+    RPROMPT="[%~]"
 }
 
 precmd_functions=($precmd_functions update_prompt)
@@ -69,5 +73,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=00;38;05;44' 'cd=00;38;05;44'
+
+export PATH="/home/daigo/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'

@@ -17,7 +17,7 @@ set scrolloff=5
 set number
 set history=50
 set list
-set listchars=tab:>>,extends:<,trail:-
+set listchars=tab:>\ ,extends:<,trail:-
 set laststatus=2
 set directory=/tmp
 set wildmode=full:list
@@ -33,6 +33,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 vnoremap <Space> :s/ *$//<CR>:nohlsearch<CR>
+nnoremap tl :FriendsTwitter<CR>
+nnoremap tt :PosttoTwitter<CR>
+nnoremap tm :MentionsTwitter<CR>
 
 " commentout.vim
 " lhs comments
@@ -59,5 +62,6 @@ call vundle#rc() " needs vim version 7.0 ~
 
 Bundle 'php.vim'
 Bundle 'groenewege/vim-less'
+Bundle 'vim-scripts/TwitVim'
 
 filetype plugin indent on

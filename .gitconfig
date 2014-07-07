@@ -21,7 +21,7 @@
     untracked = cyan
 [alias]
     st = status
-    ad = add
+    ad = add -p
     ci = commit
     br = branch
     co = checkout
