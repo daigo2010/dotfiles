@@ -34,8 +34,8 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 vnoremap <Space> :s/ *$//<CR>:nohlsearch<CR>
 nnoremap tl :FriendsTwitter<CR>
-nnoremap tt :PosttoTwitter<CR>
 nnoremap tm :MentionsTwitter<CR>
+nnoremap tn :NextTwitter<CR>
 
 " commentout.vim
 " lhs comments
@@ -63,5 +63,6 @@ call vundle#rc() " needs vim version 7.0 ~
 Bundle 'php.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/TwitVim'
+Bundle 'rhysd/clever-f.vim'
 
 filetype plugin indent on
