@@ -75,7 +75,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=00;38;05;44' 'cd=00;38;05;44'
 
-export PATH="/home/daigo/.rbenv/bin:$PATH"
+export PATH="/home/daigo/.rbenv/shims/bin:$PATH"
 eval "$(rbenv init -)"
 
 #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
