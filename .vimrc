@@ -43,8 +43,8 @@ nnoremap <silent> <Space>y :<C-u>Unite history/yank<CR>
 nnoremap <silent> <Space>b :<C-u>Unite buffer<CR>
 nnoremap <silent> <Space>r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Space>ff :<C-u>Unite file buffer<CR>
-nnoremap <silent> <Space>ft :<C-u>Unite file -tab<CR>
-nnoremap <silent> <Space>t :<C-u>Unite tab<CR>
+nnoremap <silent> <Space>ft :<C-u>Unite file buffer -tab<CR>
+nnoremap <silent> <Space>t :<C-u>Unite tab buffer<CR>
 
 
 " commentout.vim
