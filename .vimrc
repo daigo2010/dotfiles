@@ -57,6 +57,10 @@ vmap ,- :s/^/--/<CR>:nohlsearch<CR>
 vmap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
 
 
+" Erroneous operation measures
+vmap u <Nop>
+vmap U <Nop>
+
 inoremap jj <Esc><Right>
 inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
