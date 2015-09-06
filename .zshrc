@@ -69,15 +69,38 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*' list-colors 'di=;00;38;05;44' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=00;38;05;44' 'cd=00;38;05;44'
 
-export PATH="/home/daigo/.rbenv/shims/bin:$PATH"
-eval "$(rbenv init -)"
 
-#export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-#
-export EDITOR="vim"
+### golang
+export GOPATH="$HOME/golang"
 
-### Virtualenvwrapper
+### python
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+#PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+#export PATH
+
+## virtualenv
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+# ex)
+# $ mkvirtualenv --python=/path/to/python_bin python_version
+# $ workon python_version
+workon 3.4.3
+VIRTUALENVPATH="$HOME/.virtualenv/`workon`/bin"
+
+### rbenv
+export PATH="/home/daigo/.rbenv/shims/bin:$PATH:$GOPATH/bin"
+eval "$(rbenv init -)"
+
+#export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export EDITOR="vim"
+
+### gisty
+export GISTY_DIR="$HOME/dev/gists"
+export GISTY_ACCESS_TOKEN="7ffed9a226a0e9c7b8eb90c52beae0a3a21a32ec"
+
+### docker
+export DOCKER_HOST=tcp://192.168.99.100:2376
+export DOCKER_TLS_VERIFY=1

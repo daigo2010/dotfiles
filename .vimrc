@@ -78,39 +78,13 @@ Bundle 'php.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/TwitVim'
 Bundle 'rhysd/clever-f.vim'
-Bundle 'Shougo/neosnippet.vim'
-Bundle 'glidenote/serverspec-snippets'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Shougo/unite.vim'
-
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'fatih/vim-go'
 filetype plugin indent on
 
 nnoremap ec :EvervimCreateNote<CR>
 nnoremap el :EvervimNotebookList<CR>
 nnoremap er :EvervimReloadPref<CR>
-
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-
-let g:neosnippet#snippets_directory = [
-            \'~/.vim/snippets',
-            \'~/.vim/bundle/serverspec-snippets',
-            \]
-
-:set ft=ruby.serverspec

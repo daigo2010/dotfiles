@@ -8,6 +8,6 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH;/usr/include"
 eval "$(rbenv init - zsh)"
 
-zsh
+tmux
 
 # User specific aliases and functions
