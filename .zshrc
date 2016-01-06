@@ -1,6 +1,6 @@
 set -o emacs
 autoload -U compinit
-compinit
+compinit -u
 setopt auto_cd
 setopt auto_pushd
 setopt correct
