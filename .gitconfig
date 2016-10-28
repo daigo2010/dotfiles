@@ -1,6 +1,6 @@
 [user]
-    name = daigo
-    email = dragonmind2002@yahoo.co.jp
+	name = d.suganuma
+	email = ds20100531@gmail.com
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor=vim

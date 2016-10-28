@@ -66,25 +66,41 @@ inoremap <C-l> <Del>
 inoremap <C-w> <C-o>w
 inoremap <C-b> <C-o>b
 
+" quate automation
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
+vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
 " vundle
 " install  > :BundleInstall
 " clean up > :BundleClean
 set nocompatible
 filetype off
-set rtp+=~/.vim/vundle.git/
-call vundle#rc() " needs vim version 7.0 ~
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'php.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'vim-scripts/TwitVim'
-Bundle 'rhysd/clever-f.vim'
-Bundle 'thinca/vim-quickrun'
-Bundle 'Shougo/unite.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'fatih/vim-go'
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'php.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'taichouchou2/surround.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
+call neobundle#end()
+
 filetype plugin indent on
-
-nnoremap ec :EvervimCreateNote<CR>
-nnoremap el :EvervimNotebookList<CR>
-nnoremap er :EvervimReloadPref<CR>
