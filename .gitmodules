@@ -1,3 +1,4 @@
+# git submodule add -f https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
