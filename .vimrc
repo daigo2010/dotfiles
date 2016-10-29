@@ -45,6 +45,8 @@ nnoremap <silent> <Space>r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Space>ff :<C-u>Unite file buffer<CR>
 nnoremap <silent> <Space>ft :<C-u>Unite file buffer -tab<CR>
 nnoremap <silent> <Space>t :<C-u>Unite tab buffer<CR>
+nnoremap <C-n> :cn<CR>
+nnoremap <C-b> :cN<CR>
 
 
 " commentout.vim
