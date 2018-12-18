@@ -80,17 +80,17 @@ if has ("user_commands")
 
 " After phpDoc standard
 let g:pdv_cfg_CommentHead = "/**"
-let g:pdv_cfg_Comment1 = " * "
-let g:pdv_cfg_Commentn = " * "
+let g:pdv_cfg_Comment1 = " *"
+let g:pdv_cfg_Commentn = " *"
 let g:pdv_cfg_CommentTail = " */"
 let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_CommentEnd = "// }" . "}" . "}"
 
 " Default values
-let g:pdv_cfg_Type = "mixed"
+let g:pdv_cfg_Type = "string"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = "kevin olson <acidjazz@gmail.com>"
+let g:pdv_cfg_Author = "Daigo Suganuma <daigo.suganuma@infoselect.net>"
 let g:pdv_cfg_Copyright = "2006-2009 FanIQ"
 let g:pdv_cfg_License = "PHP Version 5.2 {@link http://www.php.net/license/}"
 
@@ -104,7 +104,7 @@ let g:pdv_cfg_Uses = 1
 let g:pdv_cfg_paste = 1
 
 " Wether for PHP5 code PHP4 tags should be set, like @access,... (1|0)?
-let g:pdv_cfg_php4always = 1
+let g:pdv_cfg_php4always = 0
  
 " Wether to guess scopes after PEAR coding standards:
 " $_foo/_bar() == <private|protected> (1|0)?
@@ -151,7 +151,7 @@ let g:pdv_re_indent = '^\s*'
 
 " Shortcuts for editing the text:
 let g:pdv_cfg_BOL = "norm! o"
-let g:pdv_cfg_EOL = ""
+let g:pdv_cfg_EOL = ""
 
 " }}}  
 
@@ -312,11 +312,10 @@ func! PhpDocFunc()
     " Local indent
     let l:txtBOL = g:pdv_cfg_BOL . l:indent
 
-		exec l:txtBOL . "/* " . l:scope ." ".  funcname . "(" . l:params . ") {{" . "{ */ " . g:pdv_cfg_EOL
 	
     exe l:txtBOL . g:pdv_cfg_CommentHead . g:pdv_cfg_EOL
 		" added folding
-		exe l:txtBOL . g:pdv_cfg_Comment1 . funcname . g:pdv_cfg_EOL
+		exe l:txtBOL . g:pdv_cfg_Comment1 . " " . funcname . g:pdv_cfg_EOL
     exe l:txtBOL . g:pdv_cfg_Commentn . g:pdv_cfg_EOL
 
 	while (l:parameters != ",") && (l:parameters != "")
@@ -338,27 +337,27 @@ func! PhpDocFunc()
         if l:paramtype != ""
             let l:paramtype = " " . l:paramtype
         endif
-		exe l:txtBOL . g:pdv_cfg_Commentn . "@param" . l:paramtype . " $" . l:paramname . " " . g:pdv_cfg_EOL
+		exe l:txtBOL . g:pdv_cfg_Commentn . " @param" . l:paramtype . " $" . l:paramname
 	endwhile
 
 	if l:static != ""
-        exe l:txtBOL . g:pdv_cfg_Commentn . "@static" . g:pdv_cfg_EOL
+        exe l:txtBOL . g:pdv_cfg_Commentn . " @static" . g:pdv_cfg_EOL
     endif
 	if l:abstract != ""
-        exe l:txtBOL . g:pdv_cfg_Commentn . "@abstract" . g:pdv_cfg_EOL
+        exe l:txtBOL . g:pdv_cfg_Commentn . " @abstract" . g:pdv_cfg_EOL
     endif
 	if l:final != ""
-        exe l:txtBOL . g:pdv_cfg_Commentn . "@final" . g:pdv_cfg_EOL
+        exe l:txtBOL . g:pdv_cfg_Commentn . " @final" . g:pdv_cfg_EOL
     endif
     if l:scope != ""
-    	exe l:txtBOL . g:pdv_cfg_Commentn . "@access " . l:scope . g:pdv_cfg_EOL
+    	exe l:txtBOL . g:pdv_cfg_Commentn . " @access " . l:scope . g:pdv_cfg_EOL
     endif
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@return " . g:pdv_cfg_ReturnVal . g:pdv_cfg_EOL
+	exe l:txtBOL . g:pdv_cfg_Commentn . " @return " . g:pdv_cfg_ReturnVal . g:pdv_cfg_EOL
 
 	" Close the comment block.
 	exe l:txtBOL . g:pdv_cfg_CommentTail . g:pdv_cfg_EOL
 
-  return l:modifier ." ". l:funcname . PhpDocFuncEndAuto()
+  return ""
 endfunc
 
 " }}}  
