@@ -101,6 +101,3 @@ export EDITOR="vim"
 export GISTY_DIR="$HOME/dev/gists"
 export GISTY_ACCESS_TOKEN="7ffed9a226a0e9c7b8eb90c52beae0a3a21a32ec"
 
-### docker
-export DOCKER_HOST=tcp://192.168.99.100:2376
-export DOCKER_TLS_VERIFY=1
