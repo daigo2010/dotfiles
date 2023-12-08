@@ -42,7 +42,8 @@ function rprompt-git-current-branch {
 function update_prompt {
 ###    RPROMPT="[`rprompt-git-current-branch`%~]"
     RPROMPT="[%~]"
-    PROMPT="`date '+%Y-%m-%d %H:%M:%S'` $ "
+    color=${fg[cyan]}
+    PROMPT="%{$color%}`date '+%Y-%m-%d %H:%M:%S'`%{$reset_color%} $ "
 }
 
 precmd_functions=($precmd_functions update_prompt)
